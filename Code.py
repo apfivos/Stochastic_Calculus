@@ -54,7 +54,7 @@ bin_probabilities = bin_counts / len(ST1D)
 #######################################
 np.random.seed(1)
 
-# Heston parameters (example values)
+# Heston parameters 
 kappa = 2
 theta = 0.1
 rho = -0.5
@@ -103,7 +103,7 @@ correlation_gbm = np.corrcoef(Z_T_gbm, S_T_gbm)[0,1]
 print("GBM Mean of Z(T):", mean_z_t_gbm)
 print("GBM Corr(Z(T), S(T)):", correlation_gbm)
 
-# Compute bin-wise mean Z(T) for GBM
+
 bin_means_gbm = []
 for i in range(len(bin_edges)-1):
     mask = (S_T_gbm >= bin_edges[i]) & (S_T_gbm < bin_edges[i+1])
@@ -121,7 +121,7 @@ bin_df_gbm['Risk-Neutral Probability'] = bin_df_gbm['Physical Probability'] * bi
 bin_df_gbm['Risk-Neutral Probability'] /= bin_df_gbm['Risk-Neutral Probability'].sum()
 
 # For the Heston model:
-# Z(T) = exp{ -∫0^T ( (alpha - r)/√v(u) ) dW_s(u) - 0.5∫0^T ( (alpha - r)^2 / v(u) ) du }
+
 
 a_r = (alpha - r)
 
