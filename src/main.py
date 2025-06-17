@@ -60,3 +60,13 @@ heston_exotic = price_up_and_out_call(S_heston, ST_heston, bins_heston["bin_edge
 
 print("Heston European Call Price:", heston_euro)
 print("Heston Up-and-Out Call Price:", heston_exotic)
+
+mean_z_t_gbm = Z_T_gbm.mean()
+corr_gbm = np.corrcoef(Z_T_gbm, ST_gbm)[0, 1]
+print(mean_z_t_gbm,corr_gbm)
+
+
+mean_z_t_heston = Z_T_heston.mean()
+corr_heston = np.corrcoef(Z_T_heston, ST_heston)[0, 1]
+print(mean_z_t_heston,corr_heston)
+
