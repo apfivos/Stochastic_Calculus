@@ -22,18 +22,17 @@ It then applies **Girsanov’s Theorem** to convert physical probabilities into 
 
 ## 📈 Models Implemented
 
-- **GBM**:  
-  \( dS(t) = \alpha S(t) dt + \sigma S(t) dW(t) \)
+- **GBM (Geometric Brownian Motion):**
 
-- **Heston**:  
-  \[
-  \begin{aligned}
-  dS(t) &= \alpha S(t) dt + \sqrt{v(t)} S(t) dW_S(t) \\\\
-  dv(t) &= \kappa(\theta - v(t))dt + \xi \sqrt{v(t)} dW_v(t)
-  \end{aligned}
-  \]
+  dS(t) = α·S(t)·dt + σ·S(t)·dW(t)
 
-- **Radon-Nikodym Derivatives** for both processes to compute risk-neutral measures
+- **Heston Stochastic Volatility Model:**
+
+  dS(t) = α·S(t)·dt + √v(t)·S(t)·dW_S(t)  
+  dv(t) = κ(θ − v(t))·dt + ξ·√v(t)·dW_V(t)
+
+- **Radon-Nikodym Derivatives**  
+  used to convert physical measures to risk-neutral measures.
 
 ---
 
@@ -42,7 +41,7 @@ It then applies **Girsanov’s Theorem** to convert physical probabilities into 
 1. Historical stock data (e.g. XOM) is downloaded using `yfinance`
 2. Parameters α and σ are estimated from log returns
 3. Monte Carlo simulations are run under both GBM and Heston models
-4. Girsanov’s theorem is applied to derive \( Z(T) \)
+4. Girsanov’s theorem is applied to derive Z(T)
 5. The final prices are binned and risk-neutral probabilities are computed
 6. Payoffs are calculated and discounted to estimate option values
 
