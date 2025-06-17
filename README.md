@@ -52,3 +52,46 @@ It then applies **Girsanov’s Theorem** to convert physical probabilities into 
 Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
+
+Then run:
+```bash
+python src/main.py
+```
+
+---
+
+## 📦 Requirements
+
+```text
+numpy
+pandas
+matplotlib
+yfinance
+```
+
+---
+
+## 📊 Example Output
+
+```text
+GBM European Call Price:     11.24
+GBM Up-and-Out Call Price:   6.38
+Heston European Call Price:  12.05
+Heston Up-and-Out Call Price: 6.77
+```
+
+---
+
+## 📚 Notes
+
+- No data or figures are stored in the repo.
+- The script automatically downloads all required data.
+- Designed for academic and educational purposes.
+
+---
+
+## ©️ Author
+
+Apollon Foivos Bakis — MSc Quantitative Finance  
+University of Manchester  
