@@ -1,6 +1,6 @@
 # 🧮 Derivatives Pricing with Stochastic Models
 
-This project was developed as part of the **Stochastic Calculus for Finance** module in the MSc Quantitative Finance at The University of Manchester.
+This project was developed to fulfill the coding requirements for the group CourseWorkAssigment in the **Stochastic Calculus for Finance** module in the MSc Quantitative Finance at The University of Manchester.
 
 It implements a full pricing pipeline for both plain-vanilla and exotic options using two stochastic processes: **Geometric Brownian Motion (GBM)** and the **Heston Stochastic Volatility Model**.
 
