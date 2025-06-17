@@ -70,16 +70,7 @@ matplotlib
 yfinance
 ```
 
----
 
-## 📊 Example Output
-
-```text
-GBM European Call Price:     11.24
-GBM Up-and-Out Call Price:   6.38
-Heston European Call Price:  12.05
-Heston Up-and-Out Call Price: 6.77
-```
 
 ---
 
