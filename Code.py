@@ -10,7 +10,7 @@ end_date = "2023-12-31"
 data = yf.download(symbol, start=start_date, end=end_date) 
 df = pd.DataFrame(data)
 
-# Calculate daily returns, annualized drift and volatility
+# Calculate daily returns  annualized drift and volatility
 df_returns = pd.DataFrame()
 df_returns["Returns"] = np.log(df['Adj Close'] / df['Adj Close'].shift(1))
 a = df_returns.mean() * 252
@@ -30,9 +30,9 @@ alpha = a
 
 np.random.seed(seed=1)
 
-#######################################
+
 # Task 2: GBM Model
-#######################################
+
 
 Z1 = np.random.normal(0, 1, (paths, days+1))
 SGBM = np.zeros((paths, days+1))
@@ -41,7 +41,7 @@ SGBM[:, 0] = S0
 for i in range(1, days+1):
     SGBM[:, i] = SGBM[:, i-1] * np.exp((alpha - 0.5 * sigma**2) * dt + sigma * np.sqrt(dt) * Z1[:, i])
 
-# Extract final prices and bin them
+# extract final prices and bin them
 ST1D = SGBM[:, -1]
 bins = 70
 bin_edges = np.linspace(ST1D.min(), ST1D.max(), bins + 1)
@@ -49,9 +49,9 @@ binned_v = pd.cut(ST1D, bins=bin_edges, labels=False, include_lowest=True)
 bin_counts = pd.Series(binned_v).value_counts(sort=False).reindex(range(bins), fill_value=0)
 bin_probabilities = bin_counts / len(ST1D)
 
-#######################################
+#
 # Task 2: Heston Model
-#######################################
+
 np.random.seed(1)
 
 # Heston parameters 
@@ -84,9 +84,9 @@ binned_VH = pd.cut(S1D, bins=bin_edgesH, labels=False, include_lowest=True)
 bin_countsH = pd.Series(binned_VH).value_counts(sort=False).reindex(range(binsH), fill_value=0)
 bin_probabilitiesH = bin_countsH / len(S1D)
 
-#######################################
+
 # Task 3: Risk-Neutral Measure
-#######################################
+
 
 
 # W_cumsum_gbm: cumulative Brownian motion for GBM
@@ -157,9 +157,9 @@ bin_df_heston['Risk-Neutral Probability'] = bin_df_heston['Physical Probability'
 
 bin_df_heston['Risk-Neutral Probability'] /= bin_df_heston['Risk-Neutral Probability'].sum()
 
-###################################
+
 #task 4 european call option
-###################################
+
 
 K = 100
 
@@ -178,9 +178,8 @@ g_disc_payoff = sum(gbm_payoff) * np.exp(-r*T)
 print("gbm european call",g_disc_payoff)
 print("heston european call",h_disc_payoff)
 
-######################################
 #task 5 up and out call option
-######################################
+
 
 B = 120
 
@@ -215,9 +214,6 @@ gbm_exotix_price = sum(gbm_exotic_payoff * gbm_p_neutral) * np.exp(-r*T)
 
 print("gbm exotic price",gbm_exotix_price)
 
-#######################################
-#test code to check the value of the option using the closed form solution  
-#######################################
 
 # import scipy.stats as ss
 
