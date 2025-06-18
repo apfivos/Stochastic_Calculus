@@ -61,18 +61,7 @@ python src/main.py
 
 ---
 
-## 📦 Requirements
 
-```text
-numpy
-pandas
-matplotlib
-yfinance
-```
-
-
-
----
 
 ## 📚 Notes
 
